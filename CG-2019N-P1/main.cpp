@@ -1,9 +1,11 @@
 /**
- * A simple OpenGL program that draws a colorful cube
- * that rotates as you move the arrow keys.
+ *  Prova NP1:
+ *  Mostrar dois cubos coloridos girando,
+ *  um ao centro da tela e outro orbitando 
+ *  ao redor desse primeiro cubo e rotacionado
+ *  no próprio eixo.
  *
- * Author: Mihalis Tsoukalos
- * Date: Wednesday 04 June 2014
+ *  Autor: Othon Paiva Arêas Costa <othonceu7@gmail.com>
  */
 
 #include <GL/glut.h>
@@ -15,6 +17,7 @@
 GLfloat rX = 0;
 // Rotate Y
 GLfloat rY = 0;
+// Rotate Z
 GLfloat rZ = 0;
 
 // The coordinates for the vertices of the cube
@@ -274,24 +277,23 @@ void display()
 
 void update(double delta)
 {
-	//Update the color of the square based on the time
-	//gValueR += (GLfloat)//delta;
-	//gValueG += (GLfloat)//(delta * 1.3);
-	//gValueB += (GLfloat)//(delta * 1.5);
-
-	if(rY < -360){
+	
+	if(rY < -360)
+	{
 		rY= 0;
 	
 	}
 	  rY -= 2;
 
-	if(rX > 360){
+	if(rX > 360)
+	{
 		rX= 0;
 	
 	}
 	  rX += 2;
 	
-	if(rZ > 360){
+	if(rZ > 360)
+	{
 		rZ= 0;
 	
 	}
@@ -317,25 +319,6 @@ void internalUpdate(int value)
 	glutTimerFunc(UPDATE_INTERVAL_MS, internalUpdate, 0);
 }
 
-/*
-
-void keyboard(int key, int x, int y)
-{
-	if (key == GLUT_KEY_RIGHT) {
-		rY += 5;
-	} else if (key == GLUT_KEY_LEFT) {
-		rY -= 5;
-	} else if (key == GLUT_KEY_DOWN) {
-		rX -= 5;
-	} else if (key == GLUT_KEY_UP) {
-		rX += 5;
-	}
-
-	// Request display update
-	glutPostRedisplay();
-}
-
-*/
 int main(int argc, char **argv)
 {
 	// Initialize GLUT and process user parameters
@@ -355,8 +338,10 @@ int main(int argc, char **argv)
 
 	// Callback functions
 	glutDisplayFunc(display);
+
 	//glutSpecialFunc(keyboard);
 	glutIdleFunc(display);
+
 	glutTimerFunc(UPDATE_INTERVAL_MS, internalUpdate, 0);
 
 	// Pass control to GLUT for events

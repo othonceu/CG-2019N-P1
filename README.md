@@ -1,5 +1,4 @@
 # CG-2019N-P1
-# CG-2019N-T1
 Prova NP1
 Nome: Othon Paiva Arêas Costa/
 Matricula : 1311100048
