@@ -40,9 +40,10 @@ void display()
 	
 	// Clear screen
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//glRotatef(rX, 0.0f, 1.0f, 0.0f);
+	
 	// Reset transformations
 	glLoadIdentity();
+	
 	
 	glPushMatrix();
 	// Rotate when user changes rX and rY
@@ -159,11 +160,12 @@ void display()
 	// Rotate when user changes rX and rY
 	//glRotatef(rX, 1.0f, 0.0f, 0.0f);
 	
-	glRotatef(rX, 0.0f, 0.0f, -1.0f);
-	glPushMatrix();
-	glRotatef(rZ, 0.0f, 0.0f, -1.0f);
+	//glRotatef(rZ, 0.0f, 0.0f, -1.0f);
 	
-	glTranslatef(0,-0.8, 0.0f);
+	glPushMatrix();
+	glRotatef(rX, 0.0f, 1.0f, 0.0f);
+	
+	glTranslatef(0.5,0, 0.0f);
 	// BACK
 	glColor3f(0.4f, 0.0f, 0.4f);
 	glBegin(GL_TRIANGLES);
