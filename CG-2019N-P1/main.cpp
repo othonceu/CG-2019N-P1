@@ -17,8 +17,8 @@
 GLfloat rX = 0;
 // Rotate Y
 GLfloat rY = 0;
-// Rotate Z
-GLfloat rZ = 0;
+// Rotate -Y
+GLfloat rT = 0;
 
 // The coordinates for the vertices of the cube
 GLfloat x = 0.05f;
@@ -45,233 +45,235 @@ void display()
 	glLoadIdentity();
 	
 	
+	//glRotatef(rY, 0.0f, 1.0f, 0.0f);
 	glPushMatrix();
-	// Rotate when user changes rX and rY
-	//glRotatef(rX, 1.0f, 0.0f, 0.0f);
-	glRotatef(rY, 0.0f, 1.0f, 0.0f);
+		// Rotate when user changes rX and rY
+		glRotatef(rY, 0.0f, 1.0f, 0.0f);
+		
 
-	// BACK
-	glColor3f(0.4f, 0.3f, 0.5f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, y, z);
-		glVertex3f(x, -y, z);
-		glVertex3f(-x, y, z);
-	glEnd();
+		// BACK
+		glColor3f(0.4f, 0.3f, 0.5f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, y, z);
+			glVertex3f(x, -y, z);
+			glVertex3f(-x, y, z);
+		glEnd();
 
-	glColor3f(0.4f, 0.3f, 0.5f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, -y, z);
-		glVertex3f(x, -y, z);
-		glVertex3f(-x, y, z);
-	glEnd();
+		glColor3f(0.4f, 0.3f, 0.5f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, -y, z);
+			glVertex3f(x, -y, z);
+			glVertex3f(-x, y, z);
+		glEnd();
 
-	// FRONT
-	// Using 4 trianges!
-	glColor3f(0.1f, 0.5f, 0.3f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, y, -z);
-		glVertex3f(0, 0, -z);
-		glVertex3f(-x, -y, -z);
-	glEnd();
+		// FRONT
+		// Using 4 trianges!
+		glColor3f(0.1f, 0.5f, 0.3f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, y, -z);
+			glVertex3f(0, 0, -z);
+			glVertex3f(-x, -y, -z);
+		glEnd();
 
-	glColor3f(0.1f, 0.5f, 0.3f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, -y, -z);
-		glVertex3f(0, 0, -z);
-		glVertex3f(x, -y, -z);
-	glEnd();
+		glColor3f(0.1f, 0.5f, 0.3f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, -y, -z);
+			glVertex3f(0, 0, -z);
+			glVertex3f(x, -y, -z);
+		glEnd();
 
-	glColor3f(0.1f, 0.5f, 0.3f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, y, -z);
-		glVertex3f(x, y, -z);
-		glVertex3f(0, 0, -z);
-	glEnd();
+		glColor3f(0.1f, 0.5f, 0.3f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, y, -z);
+			glVertex3f(x, y, -z);
+			glVertex3f(0, 0, -z);
+		glEnd();
 
-	glColor3f(0.1f, 0.5f, 0.3f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(0, 0, -z);
-		glVertex3f(x, y, -z);
-		glVertex3f(x, -y, -z);
-	glEnd();
+		glColor3f(0.1f, 0.5f, 0.3f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(0, 0, -z);
+			glVertex3f(x, y, -z);
+			glVertex3f(x, -y, -z);
+		glEnd();
 
-	// LEFT
-	glColor3f(0.3f, 0.5f, 0.6f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, -y, -z);
-		glVertex3f(-x, -y, z);
-		glVertex3f(-x, y, -z);
-	glEnd();
+		// LEFT
+		glColor3f(0.3f, 0.5f, 0.6f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, -y, -z);
+			glVertex3f(-x, -y, z);
+			glVertex3f(-x, y, -z);
+		glEnd();
 
-	glColor3f(0.3f, 0.5f, 0.6f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, y, z);
-		glVertex3f(-x, -y, z);
-		glVertex3f(-x, y, -z);
-	glEnd();
+		glColor3f(0.3f, 0.5f, 0.6f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, y, z);
+			glVertex3f(-x, -y, z);
+			glVertex3f(-x, y, -z);
+		glEnd();
 
-	// RIGHT
-	glColor3f(0.2f, 0.2f, 0.2f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, y, z);
-		glVertex3f(x, y, -z);
-		glVertex3f(x, -y, z);
-	glEnd();
+		// RIGHT
+		glColor3f(0.2f, 0.2f, 0.2f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, y, z);
+			glVertex3f(x, y, -z);
+			glVertex3f(x, -y, z);
+		glEnd();
 
-	glColor3f(0.2f, 0.2f, 0.2f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, -y, -z);
-		glVertex3f(x, y, -z);
-		glVertex3f(x, -y, z);
-	glEnd();
+		glColor3f(0.2f, 0.2f, 0.2f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, -y, -z);
+			glVertex3f(x, y, -z);
+			glVertex3f(x, -y, z);
+		glEnd();
 
-	// TOP
-	glColor3f(0.6f, 0.0f, 0.0f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, y, z);
-		glVertex3f(x, y, -z);
-		glVertex3f(-x, y, -z);
-	glEnd();
+		// TOP
+		glColor3f(0.6f, 0.0f, 0.0f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, y, z);
+			glVertex3f(x, y, -z);
+			glVertex3f(-x, y, -z);
+		glEnd();
 
-	glColor3f(0.6f, 0.0f, 0.0f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, y, z);
-		glVertex3f(x, y, z);
-		glVertex3f(-x, y, -z);
-	glEnd();
+		glColor3f(0.6f, 0.0f, 0.0f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, y, z);
+			glVertex3f(x, y, z);
+			glVertex3f(-x, y, -z);
+		glEnd();
 
-	// BOTTOM
-	glColor3f(0.4f, 0.0f, 0.4f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, -y, -z);
-		glVertex3f(-x, -y, z);
-		glVertex3f(x, -y, z);
-	glEnd();
+		// BOTTOM
+		glColor3f(0.4f, 0.0f, 0.4f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, -y, -z);
+			glVertex3f(-x, -y, z);
+			glVertex3f(x, -y, z);
+		glEnd();
 
-	glColor3f(0.4f, 0.0f, 0.4f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, -y, -z);
-		glVertex3f(-x, -y, -z);
-		glVertex3f(x, -y, z);
-	glEnd();
+		glColor3f(0.4f, 0.0f, 0.4f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, -y, -z);
+			glVertex3f(-x, -y, -z);
+			glVertex3f(x, -y, z);
+		glEnd();
 	glPopMatrix();
 //---------------------------------------------------------------------------------------------------
 	
 	// Rotate when user changes rX and rY
-	//glRotatef(rX, 1.0f, 0.0f, 0.0f);
 	
-	//glRotatef(rZ, 0.0f, 0.0f, -1.0f);
 	
+	glRotatef(rT, 0.0f, -1.0f, 0.0f);
+
 	glPushMatrix();
-	glRotatef(rX, 0.0f, 1.0f, 0.0f);
-	
-	glTranslatef(0.5,0, 0.0f);
-	// BACK
-	glColor3f(0.4f, 0.0f, 0.4f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, y, z);
-		glVertex3f(x, -y, z);
-		glVertex3f(-x, y, z);
-	glEnd();
+		glRotatef(rX, -1.0f, 0.0f, 0.0f);
 
-	glColor3f(0.4f, 0.0f, 0.4f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, -y, z);
-		glVertex3f(x, -y, z);
-		glVertex3f(-x, y, z);
-	glEnd();
+		glTranslatef(0.5,0, 0.0f);
+		// BACK
+		glColor3f(0.4f, 0.0f, 0.4f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, y, z);
+			glVertex3f(x, -y, z);
+			glVertex3f(-x, y, z);
+		glEnd();
 
-	// FRONT
-	// Using 4 trianges!
-	glColor3f(0.1f, 0.5f, 0.3f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, y, -z);
-		glVertex3f(0, 0, -z);
-		glVertex3f(-x, -y, -z);
-	glEnd();
+		glColor3f(0.4f, 0.0f, 0.4f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, -y, z);
+			glVertex3f(x, -y, z);
+			glVertex3f(-x, y, z);
+		glEnd();
 
-	glColor3f(0.1f, 0.5f, 0.3f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, -y, -z);
-		glVertex3f(0, 0, -z);
-		glVertex3f(x, -y, -z);
-	glEnd();
+		// FRONT
+		// Using 4 trianges!
+		glColor3f(0.1f, 0.5f, 0.3f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, y, -z);
+			glVertex3f(0, 0, -z);
+			glVertex3f(-x, -y, -z);
+		glEnd();
 
-	glColor3f(0.1f, 0.5f, 0.3f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, y, -z);
-		glVertex3f(x, y, -z);
-		glVertex3f(0, 0, -z);
-	glEnd();
+		glColor3f(0.1f, 0.5f, 0.3f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, -y, -z);
+			glVertex3f(0, 0, -z);
+			glVertex3f(x, -y, -z);
+		glEnd();
 
-	glColor3f(0.1f, 0.5f, 0.3f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(0, 0, -z);
-		glVertex3f(x, y, -z);
-		glVertex3f(x, -y, -z);
-	glEnd();
+		glColor3f(0.1f, 0.5f, 0.3f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, y, -z);
+			glVertex3f(x, y, -z);
+			glVertex3f(0, 0, -z);
+		glEnd();
 
-	// LEFT
-	glColor3f(0.3f, 0.5f, 0.6f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, -y, -z);
-		glVertex3f(-x, -y, z);
-		glVertex3f(-x, y, -z);
-	glEnd();
+		glColor3f(0.1f, 0.5f, 0.3f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(0, 0, -z);
+			glVertex3f(x, y, -z);
+			glVertex3f(x, -y, -z);
+		glEnd();
 
-	glColor3f(0.3f, 0.5f, 0.6f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, y, z);
-		glVertex3f(-x, -y, z);
-		glVertex3f(-x, y, -z);
-	glEnd();
+		// LEFT
+		glColor3f(0.3f, 0.5f, 0.6f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, -y, -z);
+			glVertex3f(-x, -y, z);
+			glVertex3f(-x, y, -z);
+		glEnd();
 
-	// RIGHT
-	glColor3f(0.2f, 0.2f, 0.2f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, y, z);
-		glVertex3f(x, y, -z);
-		glVertex3f(x, -y, z);
-	glEnd();
+		glColor3f(0.3f, 0.5f, 0.6f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, y, z);
+			glVertex3f(-x, -y, z);
+			glVertex3f(-x, y, -z);
+		glEnd();
 
-	glColor3f(0.2f, 0.2f, 0.2f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, -y, -z);
-		glVertex3f(x, y, -z);
-		glVertex3f(x, -y, z);
-	glEnd();
+		// RIGHT
+		glColor3f(0.2f, 0.2f, 0.2f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, y, z);
+			glVertex3f(x, y, -z);
+			glVertex3f(x, -y, z);
+		glEnd();
 
-	// TOP
-	glColor3f(0.6f, 0.0f, 0.0f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, y, z);
-		glVertex3f(x, y, -z);
-		glVertex3f(-x, y, -z);
-	glEnd();
+		glColor3f(0.2f, 0.2f, 0.2f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, -y, -z);
+			glVertex3f(x, y, -z);
+			glVertex3f(x, -y, z);
+		glEnd();
 
-	glColor3f(0.6f, 0.0f, 0.0f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, y, z);
-		glVertex3f(x, y, z);
-		glVertex3f(-x, y, -z);
-	glEnd();
+		// TOP
+		glColor3f(0.6f, 0.0f, 0.0f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, y, z);
+			glVertex3f(x, y, -z);
+			glVertex3f(-x, y, -z);
+		glEnd();
 
-	// BOTTOM
-	glColor3f(0.4f, 0.3f, 0.5f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(-x, -y, -z);
-		glVertex3f(-x, -y, z);
-		glVertex3f(x, -y, z);
-	glEnd();
+		glColor3f(0.6f, 0.0f, 0.0f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, y, z);
+			glVertex3f(x, y, z);
+			glVertex3f(-x, y, -z);
+		glEnd();
 
-	glColor3f(0.4f, 0.3f, 0.5f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(x, -y, -z);
-		glVertex3f(-x, -y, -z);
-		glVertex3f(x, -y, z);
-	glEnd();
-	
+		// BOTTOM
+		glColor3f(0.4f, 0.3f, 0.5f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(-x, -y, -z);
+			glVertex3f(-x, -y, z);
+			glVertex3f(x, -y, z);
+		glEnd();
+
+		glColor3f(0.4f, 0.3f, 0.5f);
+		glBegin(GL_TRIANGLES);
+			glVertex3f(x, -y, -z);
+			glVertex3f(-x, -y, -z);
+			glVertex3f(x, -y, z);
+		glEnd();
+		
 	glPopMatrix();
+	
 	glFlush();
 	glutSwapBuffers();
 }
@@ -280,26 +282,27 @@ void display()
 void update(double delta)
 {
 	
-	if(rY < -360)
+	if(rY <= -360)
 	{
 		rY= 0;
 	
 	}
 	  rY -= 2;
 
-	if(rX > 360)
+	if(rX >= 360)
 	{
 		rX= 0;
 	
 	}
 	  rX += 2;
-	
-	if(rZ > 360)
+
+	if(rT <= -360)
 	{
-		rZ= 0;
+		rT= 0;
 	
 	}
-	  rZ += 1;
+	  rT -= 2;
+
 }
 void internalUpdate(int value)
 {
