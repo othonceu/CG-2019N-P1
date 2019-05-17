@@ -161,12 +161,11 @@ void display()
 	// Rotate when user changes rX and rY
 	
 	
-	glRotatef(rT, 0.0f, -1.0f, 0.0f);
+	glRotatef(rX, 0.0f, 1.0f, 0.0f);
 
 	glPushMatrix();
-		glRotatef(rX, -1.0f, 0.0f, 0.0f);
-
 		glTranslatef(0.5,0, 0.0f);
+		glRotatef(-rT, 0.0f, 0.0f, 1.0f);
 		// BACK
 		glColor3f(0.4f, 0.0f, 0.4f);
 		glBegin(GL_TRIANGLES);
@@ -296,12 +295,12 @@ void update(double delta)
 	}
 	  rX += 2;
 
-	if(rT <= -360)
+	if(rT >= 360)
 	{
 		rT= 0;
 	
 	}
-	  rT -= 2;
+	  rT += 2;
 
 }
 void internalUpdate(int value)
