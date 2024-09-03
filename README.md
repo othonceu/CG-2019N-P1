@@ -1,4 +1,5 @@
 # CG-2019N-P1
+```bash
 Prova NP1
 Nome: Othon Paiva Arêas Costa/
 Matricula : 1311100048
@@ -11,3 +12,4 @@ install-deps:
   
 Comando no terminal:
 make && ./main
+```
