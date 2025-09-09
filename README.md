@@ -1,7 +1,7 @@
 # CG-2019N-P1
 ```bash
 Prova NP1
-Nome: Othon Paiva Arêas Costa/
+Nome: Othon Paiva Arêas Costa
 
 
 Esse prova NP1 foi desenvolvido pelo Linux:
